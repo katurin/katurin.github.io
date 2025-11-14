@@ -12,32 +12,64 @@
 <body>
   <div class="site">
     <header class="site-header">
-      <h1 class="site-title">日記ブログ</h1>
-      <p class="site-sub">katurin.github.io</p>
+      <div>
+        <h1 class="site-title">日記ブログ</h1>
+        <p class="site-sub">katurin.github.io</p>
+      </div>
     </header>
 
     <main class="content">
-      <article class="post">
-        <time class="post-date" datetime="2025-11-14">2025-11-14</time>
-        <h2 class="post-title">今日の一言</h2>
-        <div class="post-body">
-          <p>今日は○○をした。感じたことは△△。</p>
-          <p>数式の例: \(E = mc^2\)</p>
-        </div>
-      </article>
-<ul>
-  <li><a href="posts/20251114_1.html">テスト記事 A — 2025-11-15</a></li>
-  <li><a href="posts/20251114_2.html">テスト記事 B — 2025-11-16</a></li>
-  <li><a href="posts/20251114_3.html">テスト記事 C — 2025-11-17</a></li>
-</ul>
+      <!-- 最新記事（トップ表示） -->
+      <section class="posts-list">
+        <article class="post" data-date="2025-11-17">
+          <time class="post-date" datetime="2025-11-17">2025-11-17</time>
+          <h2 class="post-title"><a href="posts/20251114_3.html">テスト記事 C — 画像と長文</a></h2>
+          <div class="post-body">
+            <p>この投稿は画像表示と段落分けの確認用です。画像は <code>images/sample-01.png</code> を参照しています。</p>
+            <p>タグ: <small>#画像 #レイアウト #テスト</small></p>
+          </div>
+        </article>
 
+        <article class="post" data-date="2025-11-16">
+          <time class="post-date" datetime="2025-11-16">2025-11-16</time>
+          <h2 class="post-title"><a href="posts/20251114_2.html">テスト記事 B — 数式表示の確認</a></h2>
+          <div class="post-body">
+            <p>MathJax の表示確認用です。二次方程式の解の公式を含めています。</p>
+            <p>式の例: 
+
+\[x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}\]
+
+</p>
+            <p>タグ: <small>#数式 #MathJax</small></p>
+          </div>
+        </article>
+
+        <article class="post" data-date="2025-11-15">
+          <time class="post-date" datetime="2025-11-15">2025-11-15</time>
+          <h2 class="post-title"><a href="posts/20251114_1.html">テスト記事 A — ちょっとした気づき</a></h2>
+          <div class="post-body">
+            <p>短めのテスト投稿です。表示や余白を微調整して確認しています。</p>
+            <p>タグ: <small>#日記 #テスト</small></p>
+          </div>
+        </article>
+      </section>
     </main>
-	
+
     <aside class="sidebar">
       <section>
         <h3>プロフィール</h3>
         <p>日記と技術メモを公開しています。</p>
       </section>
+
+      <section>
+        <h3>最近の投稿</h3>
+        <ul>
+          <li><a href="posts/20251114_3.html">テスト記事 C — 2025-11-17</a></li>
+          <li><a href="posts/20251114_2.html">テスト記事 B — 2025-11-16</a></li>
+          <li><a href="posts/20251114_1.html">テスト記事 A — 2025-11-15</a></li>
+        </ul>
+      </section>
+
       <section>
         <h3>カテゴリ</h3>
         <ul>
@@ -51,5 +83,20 @@
       <p>© katurin</p>
     </footer>
   </div>
+
+  <!-- 記事を data-date または .post-date の datetime で降順ソート（任意） -->
+  <script>
+    (function(){
+      const main = document.querySelector('.posts-list');
+      if(!main) return;
+      const posts = Array.from(main.querySelectorAll('.post'));
+      posts.sort((a,b) => {
+        const da = a.getAttribute('data-date') || a.querySelector('.post-date').getAttribute('datetime');
+        const db = b.getAttribute('data-date') || b.querySelector('.post-date').getAttribute('datetime');
+        return db.localeCompare(da);
+      });
+      posts.forEach(p => main.appendChild(p));
+    })();
+  </script>
 </body>
 </html>
