@@ -1,3 +1,62 @@
-body { font-family: "Hiragino Kaku Gothic Pro","Noto Sans JP",sans-serif; line-height:1.8; margin:0; padding:1rem; max-width:800px; margin-left:auto; margin-right:auto; }
-header h1 { font-size:1.6rem; margin-bottom:0.5rem; }
-article h2 { font-size:1.2rem; margin-top:1.2rem; }
+:root{
+  --max-width:900px;
+  --accent:#1766a0;
+  --bg:#fff;
+  --muted:#666;
+  --gap:1rem;
+  --font-sans: "Noto Sans JP", "Hiragino Kaku Gothic Pro", sans-serif;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:var(--font-sans);
+  background:linear-gradient(#fbfbfb,#fff);
+  color:#111;
+  -webkit-font-smoothing:antialiased;
+  line-height:1.8;
+  padding:calc(var(--gap)*1.5);
+  display:flex;
+  justify-content:center;
+}
+
+.site{
+  width:100%;
+  max-width:var(--max-width);
+  background:var(--bg);
+  padding:calc(var(--gap)*1.2);
+  box-shadow:0 6px 18px rgba(20,20,20,0.06);
+  border-radius:8px;
+  display:grid;
+  grid-template-columns:1fr 260px;
+  gap:calc(var(--gap)*1.2);
+}
+
+.site-header{
+  grid-column:1 / -1;
+  border-bottom:1px solid #eee;
+  padding-bottom:0.6rem;
+  margin-bottom:0.4rem;
+}
+.site-title{margin:0;font-size:1.4rem;color:var(--accent)}
+.site-sub{margin:0;color:var(--muted);font-size:0.9rem}
+
+.content{padding-right:0.4rem}
+.post{margin-bottom:1.2rem}
+.post-date{display:block;color:var(--muted);font-size:0.9rem}
+.post-title{margin:0.4rem 0 0.6rem 0;font-size:1.05rem}
+.post-body p{margin:0.6rem 0}
+
+.sidebar{padding:0.6rem;border-left:1px solid #f1f1f1;color:var(--muted);font-size:0.95rem}
+.sidebar h3{margin:0 0 0.4rem 0;color:#333;font-size:0.95rem}
+.sidebar ul{padding-left:1rem;margin:0}
+
+.site-footer{grid-column:1 / -1;border-top:1px solid #eee;padding-top:0.6rem;margin-top:0.6rem;text-align:right;color:var(--muted);font-size:0.9rem}
+
+/* レスポンシブ */
+@media (max-width:860px){
+  .site{grid-template-columns:1fr; padding:1rem}
+  .sidebar{order:3;border-left:none;border-top:1px solid #f1f1f1;padding-top:0.8rem}
+  .site-footer{text-align:center}
+}

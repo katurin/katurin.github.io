@@ -3,20 +3,47 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>日記ブログ</title>
+  <title>日記ブログ — katurin</title>
+  <meta name="description" content="日々の記録を綴るシンプルな日記ブログ" />
   <link rel="stylesheet" href="style.css" />
-  <!-- MathJax（TeX をそのまま書ける） -->
+  <!-- MathJax で TeX 表記を有効化 -->
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
-  <header><h1>日記ブログ</h1></header>
-  <main>
-    <article>
-      <h2>2025-11-14</h2>
-      <p>今日は○○をした。感じたことは△△。</p>
-      <p>簡単な数式: \(E = mc^2\)</p>
-    </article>
-  </main>
-  <footer>© あなたの名前</footer>
+  <div class="site">
+    <header class="site-header">
+      <h1 class="site-title">日記ブログ</h1>
+      <p class="site-sub">katurin.github.io</p>
+    </header>
+
+    <main class="content">
+      <article class="post">
+        <time class="post-date" datetime="2025-11-14">2025-11-14</time>
+        <h2 class="post-title">今日の一言</h2>
+        <div class="post-body">
+          <p>今日は○○をした。感じたことは△△。</p>
+          <p>数式の例: \(E = mc^2\)</p>
+        </div>
+      </article>
+    </main>
+
+    <aside class="sidebar">
+      <section>
+        <h3>プロフィール</h3>
+        <p>日記と技術メモを公開しています。</p>
+      </section>
+      <section>
+        <h3>カテゴリ</h3>
+        <ul>
+          <li><a href="#">日記</a></li>
+          <li><a href="#">技術メモ</a></li>
+        </ul>
+      </section>
+    </aside>
+
+    <footer class="site-footer">
+      <p>© katurin</p>
+    </footer>
+  </div>
 </body>
 </html>
