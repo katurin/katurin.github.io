@@ -7,6 +7,11 @@
   --muted:#9aa0a6;        /* 補助テキスト */
   --gap:1rem;
   --font-sans: "Noto Sans JP", "Hiragino Kaku Gothic Pro", sans-serif;
+  --link: #3aa0ff;       /* 明るめのブルー（クリック前） */
+  --link-hover: #66b8ff; /* ホバーでさらに明るく */
+  --link-visited: #9b7bff;/* 訪問済み（紫系で区別） */
+  --link-active: #1e88e5; /* クリック時の色（やや濃い目） */
+  --link-focus-outline: rgba(102,184,255,0.35); /* フォーカス時の外枠 */
 }
 
 *{box-sizing:border-box}
@@ -85,4 +90,68 @@ pre {
   border-radius:6px;
 }
 .sidebar h3{margin:0 0 0.4rem 0;color:var(--text);font-size:0.95rem}
-.sidebar
+.sidebar ul{padding-left:1rem;margin:0}
+.sidebar a{color:var(--accent);text-decoration:none}
+.sidebar a:hover{text-decoration:underline;opacity:0.9}
+
+.site-footer{
+  grid-column:1 / -1;
+  border-top:1px solid rgba(255,255,255,0.03);
+  padding-top:0.6rem;
+  margin-top:0.6rem;
+  text-align:right;
+  color:var(--muted);
+  font-size:0.9rem;
+}
+
+/* リンクやアクセント */
+a { color: var(--accent); }
+a:visited { opacity:0.85; }
+a:hover { text-decoration:underline; }
+
+/* レスポンシブ */
+@media (max-width:860px){
+  .site{grid-template-columns:1fr; padding:1rem}
+  .sidebar{order:3;border-left:none;border-top:1px solid rgba(255,255,255,0.03);padding-top:0.8rem}
+  .site-footer{text-align:center}
+}
+
+a { text-decoration: none; color: var(--link); border-bottom: 1px solid transparent; }
+a:hover { color: var(--link-hover); border-bottom-color: var(--link-hover); }
+
+/* リンク全体に適用 */
+a {
+  color: var(--link);
+  text-decoration: underline; /* 下線が欲しくない場合は none に */
+  transition: color .12s ease, box-shadow .12s ease;
+}
+
+/* ホバー・フォーカス・アクティブ・訪問済み */
+a:hover,
+a:focus {
+  color: var(--link-hover);
+  outline: none;
+  box-shadow: 0 0 0 3px var(--link-focus-outline);
+  border-radius: 4px;
+}
+
+a:active {
+  color: var(--link-active);
+}
+
+a:visited {
+  color: var(--link-visited);
+}
+
+/* ボタン風リンクやカード内のリンク専用（必要に応じて） */
+a.button, .card a {
+  color: white;
+  background-color: var(--link);
+  padding: .35rem .6rem;
+  border-radius: 6px;
+  text-decoration: none;
+}
+a.button:hover, .card a:hover {
+  background-color: var(--link-hover);
+}
+

@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>日記ブログ — katurin</title>
-  <meta name="description" content="日々の記録を綴るシンプルな日記ブログ" />
+  <title>{{ site_title }}</title>
+  <meta name="description" content="{{ site_description }}" />
   <link rel="stylesheet" href="style.css" />
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <style>
@@ -67,19 +67,14 @@
   <div class="site">
     <header class="site-header">
       <div>
-        <h1 class="site-title">日記ブログ — katurin</h1>
-        <p class="site-sub">katurin.github.io</p>
+        <h1 class="site-title">{{ site_title }}</h1>
+        <p class="site-sub">{{ site_sub }}</p>
       </div>
     </header>
 
     <main class="content" aria-live="polite">
       <section class="posts-list">
-            <article class="post" data-date="2025-11-17">
-      <time class="post-date" datetime="2025-11-17">2025-11-17</time>
-      <h2 class="post-title"><a href="posts/20251117_1.html">タイトル</a></h2>
-      <div class="post-body"><p>2025-11-17 タイトル 導入文（要約） — ここに本文を書きます。 見出し 段落の例 箇条書き項目1 箇条書き項目2 画像挿入例: 数式例: インライン \(E=mc^2\)、ディスプレイ \[x = \frac{-b \pm \sqrt{b^2-4ac}}{2a}\] タグ: #タグ1 #タグ2</p></div>
-    </article>
-
+        {{ posts_block }}
       </section>
     </main>
 
@@ -87,7 +82,7 @@
       <section>
         <h3>最近の投稿</h3>
         <ul>
-                    <li><a href="posts/20251117_1.html">タイトル — 2025-11-17</a></li>
+          {{ recent_links }}
         </ul>
       </section>
 
@@ -101,7 +96,7 @@
     </aside>
 
     <footer class="site-footer" role="contentinfo">
-      <p>© katurin</p>
+      <p>© {{ site_owner }}</p>
     </footer>
   </div>
 
