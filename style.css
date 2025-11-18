@@ -26,7 +26,7 @@ body{
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
   line-height:1.6;
-  background: linear-gradient(180deg,#071025 0%, var(--bg) 100%);
+  background: linear-gradient(180deg,#071025 100%, var(--bg) 100%);
   color: var(--text);
 }
 
@@ -63,7 +63,7 @@ body{
   border: 1px solid rgba(255,255,255,0.02);
   transition: transform .12s ease, box-shadow .12s ease;
 }
-/* .post:hover{ transform: translateY(-4px); box-shadow: 0 8px 28px rgba(2,6,23,0.6); } */
+.post:hover{ transform: translateY(-4px); box-shadow: 0 8px 28px rgba(2,6,23,0.6); }
 
 .post-date{ display:block; color:var(--muted); font-size:0.9rem; margin-bottom:6px; }
 .post-title{ margin:0 0 8px; font-size:1.15rem; }

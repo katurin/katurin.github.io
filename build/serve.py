@@ -7,6 +7,7 @@ Run from repository root: python build/serve.py
 """
 import sys
 from pathlib import Path
+import html as _html
 
 # ensure repo root on sys.path so build.generate_index can be imported
 ROOT = Path(__file__).resolve().parents[1]
